@@ -236,7 +236,12 @@ export async function getRouteInfo(path, { priority } = {}) {
           ? process.env.REACT_STATIC_SITE_ROOT
           : process.env.REACT_STATIC_PUBLIC_PATH) || '/'
 
-      const getPath = `${routeInfoRoot}${pathJoin(path, 'routeInfo.json')}`
+      const cacheBuster =
+        process.env.REACT_STATIC_CACHE_BUST
+          ? `?${process.env.REACT_STATIC_CACHE_BUST}`
+          : ''
+
+      const getPath = `${routeInfoRoot}${pathJoin(path, 'routeInfo.json')}${cacheBuster}`
 
       // If this is a priority call bypass the queue
       if (priority) {
