@@ -1,7 +1,7 @@
 {
   "name": "@huygn/react-static",
   "description": "A progressive static site generator for React",
-  "version": "7.2.3-beta.2",
+  "version": "7.2.3-beta.3",
   "license": "MIT",
   "repository": "https://github.com/react-static/react-static",
   "main": "lib/index.js",
@@ -148,5 +148,5 @@
       "enzyme-to-json/serializer"
     ]
   },
-  "gitHead": "ca9f2162257fe67a8b4ffcbb1350695345940da4"
+  "gitHead": "0cd6a25cc9825843b93c4222e0b43a31bbbdf589"
 }
