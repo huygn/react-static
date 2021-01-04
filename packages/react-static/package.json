@@ -1,8 +1,7 @@
 {
   "name": "@huygn/react-static",
-  "private": true,
   "description": "A progressive static site generator for React",
-  "version": "7.2.3-beta.1",
+  "version": "7.2.3-beta.2",
   "license": "MIT",
   "repository": "https://github.com/react-static/react-static",
   "main": "lib/index.js",
