@@ -168,23 +168,26 @@ export default function(state) {
     (context, request, callback) => {
       // All paths starting with `./` or `/` may be bundled as usual
       if (/^[./\\]/.test(request)) {
-        return callback();
+        return callback()
       }
 
       // Attempt to resolve the requested module or file from `context` which points at
       // the file's location where the dependency on `request` is located at.
-      const res = resolveFrom(`${context}/`, request);
+      const res = resolveFrom(`${context}/`, request)
 
       if (
         res &&
         // If the request is in node_modules and a js file it should be externalised,
         /node_modules[/\\].*\.js$/.test(res) &&
         // unless it's a react-static dependency
-        !/node_modules[/\\]react-static/.test(res)
+        !/node_modules[/\\]react-static/.test(res) &&
+        // react-universal-component must be bundled for static export to work
+        // https://github.com/react-static/react-static/issues/1446
+        !/node_modules[/\\]react-universal-component/.test(res)
       ) {
-        callback(null, `commonjs ${request}`);
+        callback(null, `commonjs ${request}`)
       } else {
-        callback();
+        callback()
       }
     },
   ]
